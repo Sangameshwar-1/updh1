@@ -23,7 +23,7 @@ export function CloudinaryImage({
   publicId,
   alt,
   aspect = '4:3',
-  crop = 'fit',
+  crop = 'limit',
   priority = false,
   sizes = '(max-width: 768px) 100vw, 50vw',
   className,
@@ -61,7 +61,12 @@ export function CloudinaryImage({
       onError={() => setFailed(true)}
       onClick={onClick}
       className={className}
-      style={{ aspectRatio: aspectRatioStyle(aspect) }}
+      style={{
+        aspectRatio: aspectRatioStyle(aspect),
+        // c_limit may return an image narrower than its declared box, so letterbox
+        // it rather than stretching the exhibit out of proportion.
+        objectFit: crop === 'limit' ? 'contain' : 'cover',
+      }}
     />
   );
 }

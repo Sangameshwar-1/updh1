@@ -27,7 +27,7 @@ export function ExhibitGrid({ items }: { items: Exhibit[] }) {
                   publicId={e.publicId}
                   alt={e.alt}
                   aspect={e.aspect ?? '4:3'}
-                  crop={e.crop ?? 'fit'}
+                  crop={e.crop ?? 'limit'}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </button>
