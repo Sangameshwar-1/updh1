@@ -11,3 +11,6 @@ dist
 
 # Upload source only. Media is served from Cloudinary, never from the repo.
 sample-media
+
+# Credentials shared person to person, never through git.
+# *.local.md
