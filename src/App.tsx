@@ -44,8 +44,8 @@ export default function App() {
 
       <footer className="site-footer">
         <p>
-          A pop-up museum by Team ChronoScribes. UPDH Course Project. All media
-          delivered by Cloudinary.
+          From Stone to Smartphone · A pop-up museum by Team ChronoScribes · UPDH
+          Course Project
         </p>
       </footer>
     </div>

@@ -66,7 +66,7 @@ export const exhibits: Record<string, Exhibit[]> = {
       caption:
         'Runners and relay posts carried orders and letters along set routes. Places far from a route received news later or not at all.',
       credit: 'Map reproduced for this exhibition, 2026',
-      period: '19th century routes',
+      period: 'Reproduced 2026; the routes shown are of the 19th century',
     },
     {
       id: 'stamps',
@@ -96,7 +96,7 @@ export const exhibits: Record<string, Exhibit[]> = {
       caption:
         'Printing made many identical copies easy. Handwriting varies from one copy to the next. Compare the two.',
       credit: 'Made by the ChronoScribes team, 2026',
-      period: 'First printing press in India, Goa, 1556',
+      period: 'Made 2026; the first press in India was set up in Goa in 1556',
     },
   ]),
 
@@ -120,7 +120,7 @@ export const exhibits: Record<string, Exhibit[]> = {
       caption:
         'A telegraph operator tapped out coded signals that travelled instantly along wires. It was fast, but it only worked between connected stations.',
       credit: 'Diagram reproduced for this exhibition, 2026',
-      period: 'Service began in India in 1851',
+      period: 'Reproduced 2026; telegraph service began in India in 1851',
     },
     {
       id: 'morse-code-chart',
@@ -141,7 +141,7 @@ export const exhibits: Record<string, Exhibit[]> = {
       caption:
         'The telephone carried a live voice. Exchanges connected callers, but a home needed a line, and many homes did not have one.',
       credit: 'Landline model lent for this exhibition',
-      period: 'Exchanges began in Indian cities in 1882',
+      period: 'Lent for this exhibition; exchanges began in Indian cities in 1882',
     },
   ]),
 
@@ -189,7 +189,7 @@ export const exhibits: Record<string, Exhibit[]> = {
       caption:
         'These devices can send a message across the world in seconds. They also need data, power and skills that not everyone has equal access to.',
       credit: 'Everyday devices, shown for this exhibition',
-      period: 'Public internet service began in India in 1995',
+      period: 'Everyday devices of today; public internet reached India in 1995',
     },
     {
       id: 'network-diagram',

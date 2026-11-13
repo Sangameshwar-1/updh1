@@ -28,11 +28,13 @@ export function ExhibitGrid({ items }: { items: Exhibit[] }) {
                   alt={e.alt}
                   aspect={e.aspect ?? '4:3'}
                   crop={e.crop ?? 'limit'}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 560px) 100vw, (max-width: 1100px) 50vw, 33vw"
                 />
               </button>
               <figcaption>
-                <strong>{e.title}</strong>, {e.period}. {e.caption}{' '}
+                <span className="exhibit-title">{e.title}</span>
+                <span className="exhibit-period">{e.period}</span>
+                <p className="exhibit-caption">{e.caption}</p>
                 <cite>{e.credit}</cite>
               </figcaption>
             </figure>
