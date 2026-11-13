@@ -11,7 +11,7 @@ export default function Gallery() {
   return (
     <div className="wrap">
       <article className="gallery">
-        <header className="area-header">
+        <header className="area-header" data-reveal>
           <Link to="/" className="back-link">
             ← All zones
           </Link>

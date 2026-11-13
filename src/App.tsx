@@ -1,5 +1,7 @@
-import { Routes, Route, NavLink, Link } from 'react-router-dom';
+import { useCallback, useState } from 'react';
+import { Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
 import { zones, EXHIBITION_TITLE } from './data/zones';
+import { useScrollReveal, useScrollProgress, useScrollToTop } from './hooks/useScrollReveal';
 import Home from './pages/Home';
 import AreaPage from './pages/AreaPage';
 import Gallery from './pages/Gallery';
@@ -7,6 +9,13 @@ import About from './pages/About';
 import NotFound from './pages/NotFound';
 
 export default function App() {
+  const { pathname } = useLocation();
+  const [progress, setProgress] = useState(0);
+
+  useScrollToTop();
+  useScrollReveal();
+  useScrollProgress(useCallback((p: number) => setProgress(p), []));
+
   return (
     <div className="app">
       <header className="site-header">
@@ -22,9 +31,11 @@ export default function App() {
           <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/about">About</NavLink>
         </nav>
+        <span className="scroll-progress" style={{ transform: `scaleX(${progress / 100})` }} />
       </header>
 
-      <main>
+      {/* Keyed on the path so each page replays its entrance transition. */}
+      <main key={pathname} className="page">
         <Routes>
           <Route path="/" element={<Home />} />
 

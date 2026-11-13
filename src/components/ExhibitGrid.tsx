@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { CloudinaryImage } from './CloudinaryImage';
 import { Lightbox } from './Lightbox';
 import type { Exhibit } from '../data/types';
@@ -16,7 +16,7 @@ export function ExhibitGrid({ items }: { items: Exhibit[] }) {
     <>
       <ul className="exhibit-grid">
         {items.map((e, i) => (
-          <li key={e.id}>
+          <li key={e.id} data-reveal style={{ '--i': i % 3 } as CSSProperties}>
             <figure>
               <button
                 className="exhibit-button"

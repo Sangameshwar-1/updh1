@@ -37,6 +37,10 @@ export default function Home() {
             Enter the exhibition
           </a>
         </div>
+
+        <span className="scroll-cue" aria-hidden="true">
+          ↓
+        </span>
       </section>
 
       <div className="wrap">
@@ -47,7 +51,7 @@ export default function Home() {
               className="zone-preview"
               style={{ '--zone': `var(--${zone.id})` } as CSSProperties}
             >
-              <div className="zone-head">
+              <div className="zone-head" data-reveal>
                 <span className="zone-num">{String(i + 1).padStart(2, '0')}</span>
                 <div>
                   <h2>{zone.title}</h2>
@@ -56,8 +60,8 @@ export default function Home() {
               </div>
 
               <ul className="tile-grid">
-                {zone.areas.map((a) => (
-                  <li key={a.route}>
+                {zone.areas.map((a, j) => (
+                  <li key={a.route} data-reveal style={{ '--i': j } as CSSProperties}>
                     <Link to={a.route} className="tile">
                       <div className="tile-media">
                         <CloudinaryImage

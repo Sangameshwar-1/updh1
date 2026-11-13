@@ -9,7 +9,7 @@ export default function AreaPage({ area }: { area: Area }) {
   return (
     <div className="wrap">
       <article className="area">
-        <header className="area-header">
+        <header className="area-header" data-reveal>
           <Link to="/" className="back-link">
             ← All zones
           </Link>

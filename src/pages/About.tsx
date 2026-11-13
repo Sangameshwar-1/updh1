@@ -8,7 +8,7 @@ export default function About() {
   return (
     <div className="wrap">
       <article className="about">
-        <header className="area-header">
+        <header className="area-header" data-reveal>
           <Link to="/" className="back-link">
             ← All zones
           </Link>
