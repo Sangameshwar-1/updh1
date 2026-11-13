@@ -10,7 +10,7 @@ export default function NotFound() {
           The page you asked for does not exist. This is the application's own 404,
           which means routing is working.
         </p>
-        <Link to="/" className="btn" style={{ background: 'var(--ink)', color: 'var(--paper)' }}>
+        <Link to="/" className="btn">
           Return to the entrance
         </Link>
       </article>

@@ -92,6 +92,13 @@ with a real photograph:
 The site picks it up immediately. **No code change, no redeploy, no rebuild** — the
 page is already pointing at that ID.
 
+> **Tick "Invalidate" when you overwrite.** Cloudinary caches a separate copy of each
+> transformed size *and each format*. The site uses `f_auto`, so a browser is served a
+> WebP copy. Replacing the asset without invalidating leaves those cached copies in
+> place and the old picture keeps appearing — sometimes only in some sizes, which looks
+> baffling. If you forget, re-upload with Invalidate ticked. Allow a minute to
+> propagate.
+
 Folder layout mirrors the routes one for one:
 
 ```
