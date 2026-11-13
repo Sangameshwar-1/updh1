@@ -1,0 +1,53 @@
+import { Routes, Route, NavLink, Link } from 'react-router-dom';
+import { zones, EXHIBITION_TITLE } from './data/zones';
+import Home from './pages/Home';
+import AreaPage from './pages/AreaPage';
+import Gallery from './pages/Gallery';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
+
+export default function App() {
+  return (
+    <div className="app">
+      <header className="site-header">
+        <Link to="/" className="brand">
+          {EXHIBITION_TITLE}
+        </Link>
+        <nav>
+          {zones.map((z) => (
+            <NavLink key={z.id} to={z.areas[0].route}>
+              {z.title}
+            </NavLink>
+          ))}
+          <NavLink to="/gallery">Gallery</NavLink>
+          <NavLink to="/about">About</NavLink>
+        </nav>
+      </header>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          {/* Every zone route is generated from the registry, so a route and its
+              Cloudinary folder can never drift apart. */}
+          {zones
+            .flatMap((z) => z.areas)
+            .map((area) => (
+              <Route key={area.route} path={area.route} element={<AreaPage area={area} />} />
+            ))}
+
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+
+      <footer className="site-footer">
+        <p>
+          A pop-up museum by Team ChronoScribes. UPDH Course Project. All media
+          delivered by Cloudinary.
+        </p>
+      </footer>
+    </div>
+  );
+}
