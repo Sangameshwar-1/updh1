@@ -81,8 +81,26 @@
   transform: translateX(5px);
 }
 
+/* A block the width of the post column, so the link starts where the post
+   starts rather than at the far edge of the 1240px wrap. */
 .tt-back {
-  margin-bottom: 28px;
+  display: block;
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+
+.tt-after {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* The site-wide [data-reveal] observer re-arms only on a route change. This
+   activity swaps whole screens without navigating, so anything relying on that
+   observer would mount unobserved and sit at opacity 0 forever. These screens
+   animate themselves instead. */
+.tt-rise {
+  animation: ttIn 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
 }
 
 @keyframes ttIn {
@@ -535,6 +553,7 @@
 .tt-panels {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 18px;
   margin-top: 22px;
 }
@@ -827,9 +846,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* `both` fill means these would hold their 0%-keyframe state — invisible —
+     once the animation is suppressed. Force them on. */
   .tt-post,
   .tt-reveal,
-  .tt-reveal-mark {
+  .tt-reveal-mark,
+  .tt-rise {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;

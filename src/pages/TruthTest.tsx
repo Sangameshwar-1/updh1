@@ -157,7 +157,7 @@ export default function TruthTest() {
       </section>
 
       {submitted && (
-        <div ref={revealRef}>
+        <div ref={revealRef} className="tt-after">
           <Reveal q={q} correct={verdict === true} given={choice} />
           <button type="button" className="btn tt-next" onClick={next}>
             {index + 1 >= total ? 'See your result' : 'Next post →'}
@@ -327,7 +327,7 @@ function Intro({ onBegin }: { onBegin: () => void }) {
   return (
     <div className="wrap tt tt-intro">
       <Crumb />
-      <header className="area-header" data-reveal>
+      <header className="area-header tt-rise">
         <p className="eyebrow">Interactive Activity · Zone 4</p>
         <h1>The Truth Test</h1>
         <p className="lead">
@@ -337,7 +337,7 @@ function Intro({ onBegin }: { onBegin: () => void }) {
       </header>
 
       <div className="tt-intro-grid">
-        <section className="tt-card" data-reveal style={{ '--i': 1 } as React.CSSProperties}>
+        <section className="tt-card tt-rise" style={{ '--i': 1 } as React.CSSProperties}>
           <h3>How it works</h3>
           <p>
             One post at a time. Choose <strong>True</strong>, <strong>False</strong>,{' '}
@@ -347,7 +347,7 @@ function Intro({ onBegin }: { onBegin: () => void }) {
           <p className="tt-note">Keyboard: press 1–4 to choose, Enter to submit and to continue.</p>
         </section>
 
-        <section className="tt-card" data-reveal style={{ '--i': 2 } as React.CSSProperties}>
+        <section className="tt-card tt-rise" style={{ '--i': 2 } as React.CSSProperties}>
           <h3>What you are looking at</h3>
           <p>
             {counts.documented} of these are <strong>documented cases</strong>, investigated and
@@ -362,7 +362,7 @@ function Intro({ onBegin }: { onBegin: () => void }) {
           </p>
         </section>
 
-        <section className="tt-card" data-reveal style={{ '--i': 3 } as React.CSSProperties}>
+        <section className="tt-card tt-rise" style={{ '--i': 3 } as React.CSSProperties}>
           <h3>Not every post is false</h3>
           <p>
             Some are true. One is a message that sounds too good to be true and is real. One is an
@@ -397,12 +397,12 @@ function Result({ answers, onRestart }: { answers: Answers; onRestart: () => voi
   return (
     <div className="wrap tt tt-result">
       <Crumb />
-      <header className="area-header" data-reveal>
+      <header className="area-header tt-rise">
         <p className="eyebrow">The Truth Test</p>
         <h1>Your result</h1>
       </header>
 
-      <div className="tt-score" data-reveal>
+      <div className="tt-score tt-rise">
         <div className="tt-score-big">
           <strong>{accuracy}%</strong>
           <span>accuracy</span>
@@ -425,7 +425,7 @@ function Result({ answers, onRestart }: { answers: Answers; onRestart: () => voi
         </dl>
       </div>
 
-      <section className="tt-card" data-reveal style={{ '--i': 1 } as React.CSSProperties}>
+      <section className="tt-card tt-rise" style={{ '--i': 1 } as React.CSSProperties}>
         <h3>What this score is not</h3>
         <p>
           It is a score on ten items you were told to be suspicious of, in a room built to make you
@@ -435,7 +435,7 @@ function Result({ answers, onRestart }: { answers: Answers; onRestart: () => voi
         </p>
       </section>
 
-      <section className="tt-card" data-reveal style={{ '--i': 2 } as React.CSSProperties}>
+      <section className="tt-card tt-rise" style={{ '--i': 2 } as React.CSSProperties}>
         <h3>{missedBySkill.length ? 'Worth practising' : 'Keep doing this'}</h3>
         {missedBySkill.length ? (
           <ul className="tt-skill-list">
@@ -461,7 +461,7 @@ function Result({ answers, onRestart }: { answers: Answers; onRestart: () => voi
         )}
       </section>
 
-      <section className="tt-review" data-reveal style={{ '--i': 3 } as React.CSSProperties}>
+      <section className="tt-review tt-rise" style={{ '--i': 3 } as React.CSSProperties}>
         <h3>Every item, with its source</h3>
         <ol>
           {questions.map((q) => {
@@ -490,7 +490,7 @@ function Result({ answers, onRestart }: { answers: Answers; onRestart: () => voi
         </ol>
       </section>
 
-      <blockquote className="tt-outcome" data-reveal>
+      <blockquote className="tt-outcome tt-rise">
         {LEARNING_OUTCOME}
       </blockquote>
 

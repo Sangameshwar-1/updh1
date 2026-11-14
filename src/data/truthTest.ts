@@ -129,7 +129,7 @@ export const questions: Question[] = [
     accountNote:
       'A forward has no author. By the time it reaches you, everyone who sent it on is simply someone who also received it.',
     postText:
-      'UNESCO has declared our "Jana Gana Mana" the BEST NATIONAL ANTHEM IN THE WORLD. Proud to be an Indian. Forward to every Indian you know. 🇮🇳',
+      'UNESCO has declared our "Jana Gana Mana" the BEST NATIONAL ANTHEM IN THE WORLD. Proud to be an Indian. Forward to every Indian you know.',
     postTextProvenance: 'representative',
     engagement: null,
     originalPostUrl: null,
