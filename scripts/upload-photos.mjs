@@ -1,9 +1,21 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, existsSync } from 'node:fs';
 
-const cloud = process.env.VITE_CLOUDINARY_CLOUD_NAME || 'b7ey3fox';
-const key = process.env.CLOUDINARY_API_KEY || '895393994839131';
-const secret = process.env.CLOUDINARY_API_SECRET || 'q2Ii-ATy8R4Byq7BChuCMhTYp7k';
+// Attempt to load .env.local if present
+if (existsSync('.env.local')) {
+  const envContent = readFileSync('.env.local', 'utf8');
+  for (const line of envContent.split('\n')) {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#') && trimmed.includes('=')) {
+      const [k, ...v] = trimmed.split('=');
+      process.env[k.trim()] = v.join('=').trim();
+    }
+  }
+}
+
+const cloud = process.env.VITE_CLOUDINARY_CLOUD_NAME;
+const key = process.env.CLOUDINARY_API_KEY;
+const secret = process.env.CLOUDINARY_API_SECRET;
 
 if (!cloud || !key || !secret) {
   console.error('Missing Cloudinary credentials. Please verify .env.local exists.');
@@ -62,7 +74,6 @@ async function run() {
   for (let i = 0; i < mapping.length; i++) {
     const res = await uploadAsset(mapping[i], i, mapping.length);
     if (res.ok) successCount++;
-    // Small delay between uploads to respect API limits
     await new Promise((r) => setTimeout(r, 200));
   }
   console.log(`\nUpload complete! Successfully uploaded ${successCount} of ${mapping.length} assets.`);
