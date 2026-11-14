@@ -4,6 +4,7 @@ import { zones, EXHIBITION_TITLE } from './data/zones';
 import { useScrollReveal, useScrollProgress, useScrollToTop } from './hooks/useScrollReveal';
 import Home from './pages/Home';
 import AreaPage from './pages/AreaPage';
+import TruthTest from './pages/TruthTest';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
@@ -28,6 +29,7 @@ export default function App() {
               {z.title}
             </NavLink>
           ))}
+          <NavLink to="/zone-4/truth-test">Truth Test</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/about">About</NavLink>
         </nav>
@@ -46,6 +48,10 @@ export default function App() {
             .map((area) => (
               <Route key={area.route} path={area.route} element={<AreaPage area={area} />} />
             ))}
+
+          {/* Zone 4's one screen-based activity. It is not an AreaPage, so it is
+              declared by hand rather than generated from the registry. */}
+          <Route path="/zone-4/truth-test" element={<TruthTest />} />
 
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />
