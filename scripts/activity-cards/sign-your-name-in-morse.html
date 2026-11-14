@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Your Name in Morse — station card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="card.css" />
+  </head>
+  <body>
+    <!--
+      Heading, chart prompt and signature label are curatorial copy, verbatim.
+      The chart is drawn as shapes rather than typed full stops and hyphens:
+      a visitor copying marks by hand needs to see the length difference
+      between a dot and a dash, which "." and "-" do not show at this size.
+    -->
+    <div class="card">
+      <div class="eyebrow">
+        <span>Zone 4</span><span class="dot">&bull;</span><span>Interactive Activities</span
+        ><span class="dot">&bull;</span><span class="num">Station 2</span>
+      </div>
+
+      <h1>Sign Your Name in Morse</h1>
+
+      <p class="prompt">
+        Find each letter of your name on the chart and write its dots and dashes in the boxes
+        below. This is your Morse signature.
+      </p>
+
+      <div class="body">
+        <div class="chart" id="chart"></div>
+
+        <div class="signature">
+          <div class="label">My name in dots and dashes:</div>
+          <div class="boxes" id="boxes"></div>
+        </div>
+      </div>
+
+      <footer>
+        <span class="title">From Stone to Smartphone</span>
+        <span>Morse code &bull; Telegraph service began in India in 1851</span>
+      </footer>
+    </div>
+
+    <script>
+      // International Morse, A-Z. Written as strings of . and - here for
+      // legibility, then drawn as circles and bars.
+      const MORSE = {
+        A: '.-',    B: '-...',  C: '-.-.',  D: '-..',   E: '.',     F: '..-.',
+        G: '--.',   H: '....',  I: '..',    J: '.---',  K: '-.-',   L: '.-..',
+        M: '--',    N: '-.',    O: '---',   P: '.--.',  Q: '--.-',  R: '.-.',
+        S: '...',   T: '-',     U: '..-',   V: '...-',  W: '.--',   X: '-..-',
+        Y: '-.--',  Z: '--..',
+      };
+
+      const chart = document.getElementById('chart');
+      for (const [letter, code] of Object.entries(MORSE)) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+
+        const l = document.createElement('span');
+        l.className = 'letter';
+        l.textContent = letter;
+
+        const marks = document.createElement('span');
+        marks.className = 'marks';
+        for (const ch of code) {
+          const m = document.createElement('span');
+          m.className = ch === '.' ? 'dot-mark' : 'dash-mark';
+          marks.appendChild(m);
+        }
+
+        cell.append(l, marks);
+        chart.appendChild(cell);
+      }
+
+      // 5 columns x 6 rows = 30 cells for 26 letters. Fill the remainder so
+      // the grid keeps a straight bottom edge.
+      for (let i = Object.keys(MORSE).length; i < 30; i++) {
+        const filler = document.createElement('div');
+        filler.className = 'cell empty';
+        chart.appendChild(filler);
+      }
+
+      // Twelve boxes: enough for most first names, and a round number of
+      // columns at this width.
+      const boxes = document.getElementById('boxes');
+      for (let i = 0; i < 12; i++) {
+        const b = document.createElement('div');
+        b.className = 'box';
+        boxes.appendChild(b);
+      }
+    </script>
+  </body>
+</html>

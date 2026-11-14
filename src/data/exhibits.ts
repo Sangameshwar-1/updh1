@@ -248,6 +248,38 @@ export const exhibits: Record<string, Exhibit[]> = {
       credit: 'Team ChronoScribes, 2026',
       period: 'Activity 4',
     },
+
+    // The station cards are the printed prompts a visitor writes on at the
+    // table. Their captions are the card copy itself, so the page and the
+    // paper say the same words. Source files and renderer:
+    // scripts/activity-cards/ and scripts/render-activity-cards.mjs.
+    {
+      id: 'decode-the-symbol-card',
+      title: 'Decode the Symbol — station card',
+      alt: 'A printed card headed Decode the Symbol, with a question and ruled lines to write on',
+      caption:
+        'Nobody has yet been able to read the Indus script. Look closely at the seal. What do you think it could have said, and who might have used it?',
+      credit: 'Team ChronoScribes, 2026',
+      period: 'Station card, Activity 1',
+    },
+    {
+      id: 'sign-your-name-in-morse-card',
+      title: 'Sign Your Name in Morse — station card',
+      alt: 'A printed card with an A to Z Morse chart drawn as dots and dashes, above twelve empty boxes',
+      caption:
+        'Find each letter of your name on the chart and write its dots and dashes in the boxes below. This is your Morse signature.',
+      credit: 'Team ChronoScribes, 2026',
+      period: 'Station card, Activity 2',
+    },
+    {
+      id: 'the-2050-wall-card',
+      title: 'The 2050 Wall — station card',
+      alt: 'A printed card with a sticky note reading In 2050, I think, beside ruled lines',
+      caption:
+        'It is 2050. How do you think people in India will send messages, and who might be left out? Copy your answer onto a sticky note and add it to the wall.',
+      credit: 'Team ChronoScribes, 2026',
+      period: 'Station card, Activity 4',
+    },
   ]),
 
   about: inFolder('museum/about/team', [

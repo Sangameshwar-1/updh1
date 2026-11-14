@@ -1,0 +1,292 @@
+/*
+ * Visitor-facing station cards for Zone 4.
+ *
+ * Authored at 1000x750 CSS px and rendered at device scale 2 to give a
+ * 2000x1500 master -- 4:3, which is what the exhibit grid wants, and enough
+ * resolution to print at A5 landscape.
+ *
+ * Paper, not gallery dark: these are cards that sit on the activity table and
+ * go through a printer. The palette is the site's zone-4 gold and accent
+ * against a warm paper, so the card still reads as part of the exhibition
+ * when it appears on the website.
+ */
+
+@page {
+  size: 1000px 750px;
+  margin: 0;
+}
+
+:root {
+  --paper: #f7f1e6;
+  --paper-2: #efe6d6;
+  --ink: #1d1611;
+  --ink-2: #4a3d33;
+  --ink-3: #8c7b6c;
+  --rule: #d6c7b1;
+  --gold: #c08f1f;
+  --accent: #b4603a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 1000px;
+  height: 750px;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+}
+
+.card {
+  position: relative;
+  width: 1000px;
+  height: 750px;
+  padding: 44px 56px 40px;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(620px 360px at 8% -8%, rgba(192, 143, 31, 0.1), transparent 70%),
+    radial-gradient(520px 320px at 104% 108%, rgba(180, 96, 58, 0.08), transparent 70%),
+    var(--paper);
+}
+
+/* The gold bar is the one piece every station card shares, so a visitor can
+   tell at a glance that two cards belong to the same activity trail. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 9px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 62%, var(--accent) 100%);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.eyebrow .num {
+  color: var(--accent);
+}
+
+.eyebrow .dot {
+  color: var(--rule);
+}
+
+h1 {
+  margin: 12px 0 0;
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+
+.prompt {
+  margin: 14px 0 0;
+  max-width: 44em;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  padding-top: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ---------- Ruled writing space ---------- */
+
+.lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 4px;
+}
+
+.lines .line {
+  border-bottom: 1.5px solid var(--rule);
+}
+
+/* ---------- Morse marks ---------- */
+
+.marks {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 12px;
+}
+
+.dot-mark,
+.dash-mark {
+  display: block;
+  height: 10px;
+  background: var(--ink);
+}
+
+.dot-mark {
+  width: 10px;
+  border-radius: 50%;
+}
+
+.dash-mark {
+  width: 26px;
+  border-radius: 5px;
+}
+
+/* ---------- Morse chart ---------- */
+
+.chart {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.chart .cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 14px;
+  background: var(--paper-2);
+}
+
+.chart .cell.empty {
+  background: rgba(239, 230, 214, 0.45);
+}
+
+.chart .letter {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  width: 16px;
+  color: var(--ink);
+}
+
+/* ---------- Signature boxes ---------- */
+
+.signature {
+  margin-top: 20px;
+}
+
+.signature .label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: 9px;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 9px;
+}
+
+.boxes .box {
+  height: 62px;
+  border: 1.5px solid var(--rule);
+  border-radius: 6px;
+  background: rgba(255, 253, 249, 0.6);
+}
+
+/* ---------- Sticky-note area ---------- */
+
+.note-row {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+}
+
+.note {
+  flex: 0 0 218px;
+  align-self: center;
+  height: 218px;
+  padding: 18px;
+  background: #f4dd8a;
+  border-radius: 3px;
+  box-shadow: 0 10px 22px -12px rgba(29, 22, 17, 0.5);
+  transform: rotate(-2.2deg);
+  display: flex;
+  align-items: flex-end;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #5a4712;
+}
+
+.note-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px 0 2px;
+}
+
+.note-lines .line {
+  border-bottom: 1.5px solid var(--rule);
+  height: 1px;
+}
+
+.instruction {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.instruction::before {
+  content: '';
+  flex: 0 0 22px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 22px;
+  padding-top: 13px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+footer .title {
+  font-weight: 600;
+  color: var(--ink-2);
+}

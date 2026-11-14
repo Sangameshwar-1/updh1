@@ -64,6 +64,9 @@ organized_photos/
         │   ├── crack-the-code.jpeg
         │   ├── which-source-would-you-trust.jpeg
         │   ├── future-of-communication-wall.jpeg
+        │   ├── decode-the-symbol-card.png
+        │   ├── sign-your-name-in-morse-card.png
+        │   ├── the-2050-wall-card.png
         │   └── tile.jpeg
         └── truth-test/
             ├── pib-cst-demo.jpeg
@@ -114,10 +117,25 @@ organized_photos/
 | `museum/zone-4/activities/which-source-would-you-trust` | Zone 4 · Activity 3 | Vintage TV displaying "FAKE NEWS" with audience verification challenge |
 | `museum/zone-4/activities/future-of-communication-wall` | Zone 4 · Activity 4 | Futuristic connected digital networks illustration |
 | `museum/zone-4/activities/tile` | Zone 4 · Activities Tile | Google Lens reverse image search verification demo |
+| `museum/zone-4/activities/decode-the-symbol-card` | Zone 4 · Station card, Activity 1 | Printed prompt card: "Decode the Symbol", with ruled writing space |
+| `museum/zone-4/activities/sign-your-name-in-morse-card` | Zone 4 · Station card, Activity 2 | Printed prompt card: "Sign Your Name in Morse", A–Z Morse chart and signature boxes |
+| `museum/zone-4/activities/the-2050-wall-card` | Zone 4 · Station card, Activity 4 | Printed prompt card: "The 2050 Wall", sticky-note prompt and writing space |
 | `museum/zone-4/truth-test/pib-cst-demo` | Truth Test Case 1 | PIB Fact Check: Mumbai CST crowded platform viral debunking |
 | `museum/zone-4/truth-test/boom-manipur-demo` | Truth Test Case 2 | BOOM FactCheck: Viral Myanmar weapon footage falsely attributed to Manipur |
 | `museum/zone-4/truth-test/reverse-search-demo` | Truth Test Case 3 | Google Lens reverse image search detecting lenticular cloud |
 | `museum/zone-4/truth-test/wikipedia-demo` | Truth Test Case 4 | Wikipedia editorial standards and fact-checking guide |
+
+> The three **station cards** are the one group here that is generated rather
+> than photographed. They are authored as HTML in `scripts/activity-cards/`,
+> rendered to 2000×1500 PNG masters in `activity-img/` by
+> `node scripts/render-activity-cards.mjs`, and uploaded by
+> `node scripts/upload-activity-cards.mjs`. Edit the HTML, re-render,
+> re-upload — do not retouch the PNGs, they are build output. The same files
+> open in a browser and print for the physical activity table.
+>
+> Their card copy is curatorial and is reproduced verbatim in
+> `src/data/exhibits.ts`, so the website and the paper on the table say the
+> same words. Change one and change the other.
 
 ---
 
