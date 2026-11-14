@@ -847,3 +847,109 @@ h3 {
     gap: 12px;
   }
 }
+
+
+/* ---------- External Links Section ---------- */
+
+.external-links-section {
+  margin-top: clamp(48px, 8vw, 80px);
+  padding-top: clamp(32px, 5vw, 48px);
+  border-top: 1px solid var(--line);
+}
+
+.external-links-head {
+  max-width: var(--measure);
+  margin-bottom: 28px;
+}
+
+.external-links-head h2 {
+  font-family: var(--display);
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 6px 0 12px;
+  color: var(--text);
+}
+
+.external-links-lead {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+.external-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.external-link-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.external-link-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: var(--surface-2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.external-link-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.source-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(217, 143, 85, 0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.external-icon {
+  font-size: 16px;
+  color: var(--muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.external-link-card:hover .external-icon {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+.external-link-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+.external-link-desc {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.external-link-url {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: monospace;
+}

@@ -1,12 +1,45 @@
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { CloudinaryImage } from '../components/CloudinaryImage';
+import { ExternalLinksSection } from '../components/ExternalLinksSection';
+import type { ExternalLink } from '../data/types';
 import {
   zones,
   HOME_FOLDER,
   EXHIBITION_TITLE,
   EXHIBITION_SUBTITLE,
 } from '../data/zones';
+
+const homeExternalLinks: ExternalLink[] = [
+  {
+    title: 'History of Communication — Global and Indian Timeline',
+    url: 'https://en.wikipedia.org/wiki/History_of_communication',
+    source: 'Wikipedia',
+    description:
+      'The monumental evolution of human communication from ancient stone petroglyphs and royal courier routes to global satellite grids.',
+  },
+  {
+    title: 'National Museum New Delhi — Virtual Artifact Collections',
+    url: 'https://nationalmuseumindia.gov.in/',
+    source: 'National Museum of India',
+    description:
+      'Official online access to prehistoric seals, classical epigraphy, medieval manuscripts, and national communication heritage.',
+  },
+  {
+    title: 'UNESCO World Heritage Centre — Historic Monuments of India',
+    url: 'https://whc.unesco.org/en/statesparties/in',
+    source: 'UNESCO',
+    description:
+      'International recognition and conservation dossiers for historic edict pillars, rock shelters, and architectural monuments.',
+  },
+  {
+    title: 'Prasar Bharati Archives — Public Broadcasting Legacy',
+    url: 'https://prasarbharati.gov.in/',
+    source: 'Prasar Bharati',
+    description:
+      'Sound and visual chronicles capturing landmark broadcasts from Akashvani radio studios and Doordarshan television transmitters.',
+  },
+];
 
 export default function Home() {
   return (
@@ -81,6 +114,13 @@ export default function Home() {
             </section>
           ))}
         </div>
+
+        <ExternalLinksSection
+          links={homeExternalLinks}
+          title="Exhibition Reference Library & External Archives"
+          eyebrow="Further Exploration"
+          description="Curated digital resources, encyclopedia articles, and institutional archives complementing the four zones of our exhibition."
+        />
       </div>
     </article>
   );

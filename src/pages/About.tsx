@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { CloudinaryImage } from '../components/CloudinaryImage';
+import { ExternalLinksSection } from '../components/ExternalLinksSection';
 import { exhibitsFor } from '../data/exhibits';
+import { findArea } from '../data/zones';
 
 export default function About() {
   const team = exhibitsFor('about');
+  const area = findArea('/about');
 
   return (
     <div className="wrap">
@@ -39,6 +42,15 @@ export default function About() {
               </li>
             ))}
           </ul>
+        )}
+
+        {area?.externalLinks && (
+          <ExternalLinksSection
+            links={area.externalLinks}
+            title="Academic Context & Open Knowledge References"
+            eyebrow="Further Reading"
+            description="Explore foundational scholarship on digital humanities, public history exhibitions, and open-access cultural dissemination."
+          />
         )}
       </article>
     </div>

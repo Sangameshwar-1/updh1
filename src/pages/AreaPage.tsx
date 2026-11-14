@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ExhibitGrid } from '../components/ExhibitGrid';
+import { ExternalLinksSection } from '../components/ExternalLinksSection';
 import { exhibitsFor } from '../data/exhibits';
 import type { Area } from '../data/types';
 // Holds .tt-promo as well as the activity's own styles; Zone 4 is the only
@@ -40,6 +41,15 @@ export default function AreaPage({ area }: { area: Area }) {
         )}
 
         <ExhibitGrid items={items} />
+
+        {area.externalLinks && area.externalLinks.length > 0 && (
+          <ExternalLinksSection
+            links={area.externalLinks}
+            title={`${area.title} — Reference Archives`}
+            eyebrow="Further Exploration"
+            description="Explore authentic historical records, scholarly encyclopedias, and museum archives related to this exhibit."
+          />
+        )}
       </article>
     </div>
   );

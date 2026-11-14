@@ -1,5 +1,12 @@
 import type { Aspect, Crop } from '../lib/cloudinary';
 
+export type ExternalLink = {
+  title: string;
+  url: string;
+  source: string;
+  description?: string;
+};
+
 export type Exhibit = {
   id: string;
   /** Full Cloudinary public ID, e.g. museum/zone-2/telegraph/morse-key-1890 */
@@ -25,6 +32,7 @@ export type Area = {
   /** Cloudinary folder. The route is derived from it, so the two cannot drift. */
   folder: string;
   route: string;
+  externalLinks?: ExternalLink[];
 };
 
 export type Zone = {

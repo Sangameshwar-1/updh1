@@ -14,3 +14,8 @@ sample-media
 
 # Credentials shared person to person, never through git.
 # *.local.md
+
+# Local media intake
+WhatsApp Unknown*
+local_uploads/
+organized_photos/

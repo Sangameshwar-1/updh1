@@ -547,6 +547,85 @@ export const questions: Question[] = [
       'We did not open the underlying databases, and the counts above are as reported. That is precisely why the honest answer to the headline is to go and verify.',
     skill: 'evidence',
   },
+
+  {
+    id: 'pib-cst-platform',
+    provenance: 'documented',
+    platform: 'x',
+    platformLabel: 'X (Twitter) · Fact-check investigation',
+    postDate: '7 April 2021',
+    account: 'PIB Fact Check (@PIBFactCheck)',
+    accountNote: 'Official fact-checking unit of the Press Information Bureau, Government of India.',
+    postText:
+      'A video of heavily crowded Mumbai CST Platform is being shared on social media claiming to be from yesterday. #PIBFactCheck: The video is old and is being mischievously shared with recent dates. Please don\'t share this video.',
+    postTextProvenance: 'quoted',
+    engagement: '48 retweets · 104 likes',
+    originalPostUrl: 'https://twitter.com/PIBFactCheck',
+    screenshotPublicId: 'museum/zone-4/truth-test/pib-cst-demo',
+    imageAttribution: 'PIB Fact Check official tweet archive, 2021.',
+    claim: 'A viral video shows the Mumbai CST railway platform heavily crowded yesterday during COVID-19 travel restrictions.',
+    question: 'Do you trust this claim?',
+    correct: 'misleading',
+    alsoAccepted: ['false'],
+    explanation:
+      'The video is real footage of Mumbai CST station, but it was filmed in 2020 during the early pandemic period. It was recirculated in April 2021 with the claim that it happened "yesterday" to incite panic regarding train cancellations.',
+    originalContext:
+      'Old footage is frequently recirculated with modified timestamps during high-tension events such as pandemic waves and lockdowns to fabricate current crises.',
+    evidence: [
+      'Central Railway confirmed normal operations and no crowding matching the viral claim.',
+      'PIB Fact Check traced the clip back to archives from 2020.',
+      'Station signage visible in high-resolution frames matched historical schedules.',
+    ],
+    factCheckSource: 'PIB Fact Check',
+    factCheckUrl: 'https://factcheck.pib.gov.in/',
+    moreLinks: [
+      {
+        label: 'PIB Fact Check Unit',
+        url: 'https://factcheck.pib.gov.in/',
+      },
+    ],
+    verificationNote: null,
+    skill: 'date',
+  },
+
+  {
+    id: 'boom-manipur-weapons',
+    provenance: 'documented',
+    platform: 'facebook',
+    platformLabel: 'Facebook · Viral video forward',
+    postDate: 'June 2023',
+    account: null,
+    accountNote: 'Shared anonymously across Facebook and messaging apps during the Manipur conflict.',
+    postText:
+      'Huge number of highly sophisticated Weapons in a Masjid in Manipur. This is the reason. Pappu Khan was repeatedly challenging our PM to visit Manipur. U can imagine the depth of the conspiracy involved in this...',
+    postTextProvenance: 'quoted',
+    engagement: null,
+    originalPostUrl: null,
+    screenshotPublicId: 'museum/zone-4/truth-test/boom-manipur-demo',
+    imageAttribution: 'Fact-check investigation card by BOOM Live.',
+    claim: 'A large cache of sophisticated weapons was seized from a mosque in Manipur.',
+    question: 'Do you trust this post?',
+    correct: 'false',
+    explanation:
+      'The video had nothing to do with Manipur or India. A reverse video search by BOOM revealed the footage was recorded in Myanmar in 2021, showing weapons captured by anti-junta resistance fighters in Chin State.',
+    originalContext:
+      'During the ethnic conflict in Manipur in 2023, numerous foreign clips from Myanmar and Latin America were misattributed to exacerbate communal tensions.',
+    evidence: [
+      'BOOM conducted keyframe reverse image searches and identified the original Myanmar video from 2021.',
+      'Terrain, uniforms, and weapon types matched Myanmar resistance forces.',
+      'Local police and state authorities confirmed no such weapons cache was found in Manipur.',
+    ],
+    factCheckSource: 'BOOM Live',
+    factCheckUrl: 'https://www.boomlive.in/',
+    moreLinks: [
+      {
+        label: 'BOOM Live — Fact Check Archive',
+        url: 'https://www.boomlive.in/',
+      },
+    ],
+    verificationNote: null,
+    skill: 'context',
+  },
 ];
 
 export const LEARNING_OUTCOME =

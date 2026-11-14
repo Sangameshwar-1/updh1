@@ -11,7 +11,40 @@ import {
   type Question,
   type Skill,
 } from '../data/truthTest';
+import { ExternalLinksSection } from '../components/ExternalLinksSection';
+import type { ExternalLink } from '../data/types';
 import '../styles/truth-test.css';
+
+const truthTestExternalLinks: ExternalLink[] = [
+  {
+    title: 'PIB Fact Check — Official Government Portal',
+    url: 'https://factcheck.pib.gov.in/',
+    source: 'PIB Fact Check',
+    description:
+      'Official Government of India verification unit established to investigate and debunk fake viral circulars, schemes, and misinformation.',
+  },
+  {
+    title: 'BOOM Live — Independent Fact-Checking',
+    url: 'https://www.boomlive.in/',
+    source: 'BOOM Live',
+    description:
+      'IFCN-certified Indian investigative news organization specializing in photo and video provenance verification.',
+  },
+  {
+    title: 'Alt News — Media & Fact Verification',
+    url: 'https://www.altnews.in/',
+    source: 'Alt News',
+    description:
+      'Dedicated fact-checking platform exposing fabricated claims, social media manipulation, and doctored multimedia.',
+  },
+  {
+    title: 'Media Literacy — Wikipedia',
+    url: 'https://en.wikipedia.org/wiki/Media_literacy',
+    source: 'Wikipedia',
+    description:
+      'Frameworks and methodologies for critical evaluation of media messages, provenance, and informational credibility.',
+  },
+];
 
 type Phase = 'intro' | 'playing' | 'done';
 
@@ -375,6 +408,13 @@ function Intro({ onBegin }: { onBegin: () => void }) {
       <button type="button" className="btn tt-begin" onClick={onBegin}>
         Begin the challenge
       </button>
+
+      <ExternalLinksSection
+        links={truthTestExternalLinks}
+        title="Fact-Checking Resources & Verification Archives"
+        eyebrow="Independent Verification"
+        description="Consult certified Indian fact-checking organisations and open verification frameworks to investigate claims yourself."
+      />
     </div>
   );
 }
@@ -493,6 +533,13 @@ function Result({ answers, onRestart }: { answers: Answers; onRestart: () => voi
       <blockquote className="tt-outcome tt-rise">
         {LEARNING_OUTCOME}
       </blockquote>
+
+      <ExternalLinksSection
+        links={truthTestExternalLinks}
+        title="Fact-Checking Resources & Verification Archives"
+        eyebrow="Independent Verification"
+        description="Consult certified Indian fact-checking organisations and open verification frameworks to investigate claims yourself."
+      />
 
       <div className="tt-end-actions">
         <button type="button" className="btn" onClick={onRestart}>
